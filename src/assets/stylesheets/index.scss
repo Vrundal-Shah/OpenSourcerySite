@@ -1,5 +1,10 @@
 @import "base";
 
+.appRoot {
+	width: 100%;
+	height: 100%;
+}
+
 #main-title.title {
 	font-size: 3.5rem !important;
 }
@@ -7,20 +12,45 @@
 section {
 	padding-top: 1.5rem;
 	padding-bottom: 1.5rem;
-}
 
-section.page-section {
-	&:nth-child(odd) {
-		@extend .bg-dark, .color-primary;
+	&.page-section {
+		&:nth-child(odd) {
+			@extend .bg-dark, .color-primary;
+		}
+
+		&:nth-child(even) {
+			@extend .bg-light, .color-dark;
+		}
 	}
 
-	&:nth-child(even) {
-		@extend .bg-light, .color-dark;
-	}
+	// .page-section {
+	// 	@extend .bg-dark, .color-primary;
+	// }
 }
 
 .about-icon {
 	display: block;
 	font-size: 48px;
 	text-align: center;
+}
+
+#projects > .container {
+	@include media-breakpoint-up(xl) {
+		max-width: 1280px;
+	}
+}
+
+.icon-groupme {
+	display: inline-block;
+	transform: translateY(.25em);
+	width: 1em;
+	height: auto;
+
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: crisp-edges;
+
+	&::before {
+		content: url("/assets/images/GroupMe.svg");
+	}
 }
